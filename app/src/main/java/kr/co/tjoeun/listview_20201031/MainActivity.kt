@@ -1,6 +1,8 @@
 package kr.co.tjoeun.listview_20201031
 
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -51,21 +53,39 @@ class MainActivity : AppCompatActivity() {
         studentListView.setOnItemLongClickListener { parent, view, position, id ->
 
 //            해당 줄을 길게 누르면 실행할 코드를 적는 공간.
+
+//            정말로 삭제할지 우선 물어보자. => 경고창을 만들어서 띄워주자.
+//            확인이 눌렸을때만, 목록에서 제거
+
+            val alert = AlertDialog.Builder(this)
+            alert.setTitle("학생 명부 삭제")
+            alert.setMessage("정말 해당 학생을 삭제하시겠습니까?")
+            alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which ->
+
+//                확인이 눌리면 할 일을 적는 공간
+
 //            오래 눌린 학생을 목록에서 제거하자. (ArrayList - remove)
 
-            val longClickedStd = mStudentList[position]
+                val longClickedStd = mStudentList[position]
 
-            Log.d("롱클릭이벤트", longClickedStd.name)
+                Log.d("롱클릭이벤트", longClickedStd.name)
 
-            Log.d("삭제전 갯수", mStudentList.size.toString())
+                Log.d("삭제전 갯수", mStudentList.size.toString())
 
 //            mStudentList.remove(longClickedStd)  // "학생"을 삭제하자
-            mStudentList.removeAt(position)  // 해당 "위치"의 데이터 삭제
+                mStudentList.removeAt(position)  // 해당 "위치"의 데이터 삭제
 
 //            어댑터에게 변경사항 공지함. 새로 반영해라.
-            mAdapter.notifyDataSetChanged()
+                mAdapter.notifyDataSetChanged()
 
-            Log.d("삭제후 갯수", mStudentList.size.toString())
+                Log.d("삭제후 갯수", mStudentList.size.toString())
+
+            })
+            alert.setNegativeButton("취소", null)
+
+            alert.show()
+
+
 
 //            Boolean (true / false)값으로 결과를 지정(return)해야함. (안한 상태에서는 에러 처리)
 
