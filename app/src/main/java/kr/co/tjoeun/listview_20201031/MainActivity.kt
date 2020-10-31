@@ -47,10 +47,21 @@ class MainActivity : AppCompatActivity() {
         studentListView.setOnItemLongClickListener { parent, view, position, id ->
 
 //            해당 줄을 길게 누르면 실행할 코드를 적는 공간.
+//            오래 눌린 학생을 목록에서 제거하자. (ArrayList - remove)
 
             val longClickedStd = mStudentList[position]
 
             Log.d("롱클릭이벤트", longClickedStd.name)
+
+            Log.d("삭제전 갯수", mStudentList.size.toString())
+
+//            mStudentList.remove(longClickedStd)  // "학생"을 삭제하자
+            mStudentList.removeAt(position)  // 해당 "위치"의 데이터 삭제
+
+//            어댑터에게 변경사항 공지함. 새로 반영해라.
+            mAdapter.notifyDataSetChanged()
+
+            Log.d("삭제후 갯수", mStudentList.size.toString())
 
 //            Boolean (true / false)값으로 결과를 지정(return)해야함. (안한 상태에서는 에러 처리)
 
