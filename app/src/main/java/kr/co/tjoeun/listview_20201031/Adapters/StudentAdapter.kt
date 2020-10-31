@@ -11,7 +11,7 @@ import kr.co.tjoeun.listview_20201031.datas.Student
 class StudentAdapter(
     val mContext:Context,
     val resld:Int,
-    val mList : ArrayAdapter<Student>) : ArrayAdapter<Student>(mContext, resld, mList) {
+    val mList : ArrayList<Student>) : ArrayAdapter<Student>(mContext, resld, mList) {
 
     val inf = LayoutInflater.from(mContext)
 
