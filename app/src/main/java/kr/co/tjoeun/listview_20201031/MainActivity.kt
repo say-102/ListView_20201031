@@ -1,5 +1,6 @@
 package kr.co.tjoeun.listview_20201031
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -82,4 +83,31 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == REQ_FOR_STUDENT_INFO) {
+
+            if (resultCode == Activity.RESULT_OK) {
+
+//                학생정보를 가지러 다녀온것도 맞고,
+//                확인을 누른것도 맞는 상황. => 첨부한 데이터를 가지고 사용하자.
+
+//                첨부된 데이터로 => 학생을 새로 만들어서 => 목록에 추가
+
+                val newStudent = Student(
+                    data!!.getStringExtra("name")!!,
+                    "${data!!.getStringExtra("largeArea")} ${data!!.getStringExtra("smallArea")}",
+                    data!!.getIntExtra("birthYear", 1970))
+
+                mStudentList.add(newStudent)
+
+                mAdapter.notifyDataSetChanged()
+
+            }
+        }
+
+    }
+
 }
