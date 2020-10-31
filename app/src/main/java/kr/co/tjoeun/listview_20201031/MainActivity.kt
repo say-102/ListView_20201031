@@ -1,13 +1,13 @@
 package kr.co.tjoeun.listview_20201031
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import kotlinx.android.synthetic.main.activity_main.*
 import kr.co.tjoeun.listview_20201031.Adapters.StudentAdapter
 import kr.co.tjoeun.listview_20201031.datas.Student
