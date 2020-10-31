@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import kr.co.tjoeun.listview_20201031.R
 import kr.co.tjoeun.listview_20201031.datas.Student
 
@@ -21,6 +22,20 @@ class StudentAdapter(
             tempRow = inf.inflate(R.layout.student_list_item, null)
         }
         val row = tempRow!!
+
+//        row가 바로 결과가 되지 말고, 가공을 거친 후에 결과가 되게 하자.
+
+        val nameTxt = row.findViewById<TextView>(R.id.nameTxt)
+        val ageTxt = row.findViewById<TextView>(R.id.ageTxt)
+        val addressTxt = row.findViewById<TextView>(R.id.addressTxt)
+
+        val studentData = mList[position]
+
+        nameTxt.text = studentData.name
+        addressTxt.text = studentData.address
+
+//        생년을 가지고 그대로 찍으면 잘못된 데이터. => 나이로 변환 해야함. (알고리즘 고민)
+        ageTxt.text = "${studentData.birthYear}세"
 
         return row
 

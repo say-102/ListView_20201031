@@ -12,6 +12,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/nameTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="이름 자리"
@@ -19,12 +20,14 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/ageTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="33세"
             android:textSize="17sp" />
 
         <TextView
+            android:id="@+id/addressTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
