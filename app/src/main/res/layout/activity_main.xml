@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/makeNewStudentBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="학생 새로 추가하기" />
+
     <ListView
         android:id="@+id/studentListView"
         android:layout_width="match_parent"

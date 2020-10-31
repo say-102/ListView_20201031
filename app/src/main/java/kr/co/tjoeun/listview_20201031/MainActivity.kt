@@ -1,5 +1,6 @@
 package kr.co.tjoeun.listview_20201031
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -14,6 +15,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var mAdapter : StudentAdapter
 //    lateinit -> 나중에 대입할게 하는거
+
+    val REQ_FOR_STUDENT_INFO = 1000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,8 +70,16 @@ class MainActivity : AppCompatActivity() {
 
             return@setOnItemLongClickListener true
 
+        }
+
+//        학생 추가하기 버튼 이벤트
+        makeNewStudentBtn.setOnClickListener {
+
+            val myIntent = Intent(this, EditStudentInfoActivity::class.java)
+            startActivityForResult(myIntent, REQ_FOR_STUDENT_INFO)
 
         }
+
 
     }
 }

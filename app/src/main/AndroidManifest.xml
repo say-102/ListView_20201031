@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ListView_20201031">
+        <activity android:name=".EditStudentInfoActivity"></activity>
+        <activity android:name=".ActivityEditStudentInfo" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
