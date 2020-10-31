@@ -2,11 +2,15 @@ package kr.co.tjoeun.listview_20201031
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kr.co.tjoeun.listview_20201031.Adapters.StudentAdapter
 import kr.co.tjoeun.listview_20201031.datas.Student
 
 class MainActivity : AppCompatActivity() {
 
     val mStudentList = ArrayList<Student>()
+
+    lateinit var mAdapter : StudentAdapter
+//    lateinit -> 나중에 대입할게 하는거
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +26,9 @@ class MainActivity : AppCompatActivity() {
         mStudentList.add(Student("박보영", "경기도 고양시", 1990))
         mStudentList.add(Student("차은우", "서울시 도봉구", 1997))
         mStudentList.add(Student("정우성", "서울시 강북구", 1973))
+
+        mAdapter = StudentAdapter(this, R.layout.student_list_item, mStudentList)
+        studentListView.adapter = mAdapter
 
     }
 }
