@@ -2,6 +2,7 @@ package kr.co.tjoeun.listview_20201031
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kr.co.tjoeun.listview_20201031.Adapters.StudentAdapter
@@ -40,6 +41,21 @@ class MainActivity : AppCompatActivity() {
             val clickedStudent = mStudentList[position]
 
             Toast.makeText(this, clickedStudent.name, Toast.LENGTH_SHORT).show()
+
+        }
+
+        studentListView.setOnItemLongClickListener { parent, view, position, id ->
+
+//            해당 줄을 길게 누르면 실행할 코드를 적는 공간.
+
+            val longClickedStd = mStudentList[position]
+
+            Log.d("롱클릭이벤트", longClickedStd.name)
+
+//            Boolean (true / false)값으로 결과를 지정(return)해야함. (안한 상태에서는 에러 처리)
+
+            return@setOnItemLongClickListener true
+
 
         }
 
